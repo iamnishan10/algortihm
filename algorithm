@@ -1,55 +1,132 @@
-#include<stdio.h>
-#include<stdlib.h>
-int welcome_page();
-void display_package();
-int bill();
-int repeat();
-float tax(int amount);
-float vat(float amount);
-void main_menu(int);
-int lottery_ID=1375;
-int main( )
-{	int customer=1;
-	welcome_page();
-	display_package();
-	main_menu(customer);
-}
-int welcome_page()
-{	printf("__________________________________________________________________________________________\n");
-	printf("|* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * **|");
-	printf("\n|*\t\t\t\tWelcome Nishan ISP\t\t\t\t\t*|");
-	printf("\n|*\t\t\t\t     Nepal\t\t\t\t\t\t*|");
-	printf("\n|*\t\t\tHappy Connection! Happy Family! \t\t\t\t*|");
-	printf("\n|*\t\t\tWe Announce Exclusive Discount !!\t\t\t\t*|");
-	printf("\n|*\t\t\t\t\tfor\t\t\t\t\t\t*|");
-	printf("\n|*\t\t\t\tOur 25th Anniversary\t\t\t\t\t*|\n");
-    printf("|*\n\t\t\t\t1.Monthly\t2.3 Months\t 3.6 Months\t4.1 Year*|\n");
-
-}
-void display_package()
-{
-	int i,j,package[3][4];	
-	package [0][0]= 1499;
-	package [0][1]=4199;
-	package [0][2]=7499; 
-	package [0][3]=13999;	
-	package [1][0]=1799;
-	package [1][1]=4999;
-	package [1][2]=9299;
-	package [1][3]=17999;		
-	package [2][0]=2399;
-	package [2][1]=6599;
-	package [2][2]=12199;
-	package [2][3]=23999;
-            
-	for (i=0;i<3;i++)
+void main_menu(int customer)
+{	
+		int choice,mark,paying_for;
+		printf("\n\t^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+		printf("\n\t\t\t\tWelcome to main menu!");
+		printf("\n\t\t\t\t   Customer:%d ",customer);
+		printf("\n\t\t\t\t_____________________\n");
+		printf("\n\t\t\t\t Press 1: Pay Bill \n");
+		printf("\n\t\t\t\t Press 2: Exit System\n");
+		printf("\n\t\t\t\t Select\t:");
+		scanf("%d",&choice);
+		system("cls");
+		if(choice==1)
 		{
-			printf("|* Home Zoom %d0x:",i+2);
-			for(j=0;j<4;j++)
+			while(choice==1)
 			{
-				printf("\t\t%d",package[i][j]);
+			
+				welcome_page();
+				display_package();
+				printf("\n\t^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+				printf("\n\t\t\t\tPress 1: Home Zoom 20x\n");
+				printf("\n\t\t\t\tPress 2: Home Zoom 30x\n");
+				printf("\n\t\t\t\tPress 3: Home Zoom 40x\n");
+				printf("\n\t\t\t\t\tSelect:");
+				scanf("%d",&mark);
+				system("cls");
+				 switch(mark)
+				 {
+				 		case 1:
+				 			welcome_page();
+				 			display_package();
+				 			printf("\n\n\t\t\t Please select pacakage of Home Zoom 20x.");
+				 			printf("\n\t\t\t_______________________________________________");
+				 			printf("\n\t\t\t\tSelect:");
+							scanf("%d",&paying_for);
+							switch(paying_for)
+							{
+								case 1:
+									bill(1499,1);
+									break;
+								case 2:
+									bill(4199,3);
+									break;
+								case 3:
+									bill(7499,6);
+									break;
+								case 4:
+									bill(13999,12);
+									break;
+								case 5:
+									exit(0);
+								default:
+									printf("\n\t\t\tInvalid!!!\n\t\t\t Try Again.");
+									
+							}
+				 			break;
+				 		case 2:
+				 			welcome_page();
+				 			display_package();
+				 			printf("\n\n\t\t\t Please select pacakage of Home Zoom 30x.");
+				 			printf("\n\t\t\t_______________________________________________");
+				 			printf("\n\t\t\t\t\tSelect:");
+							scanf("%d",&paying_for);
+							switch(paying_for)
+							{
+								case 1:
+									bill(1799,1);
+									break;
+								case 2:
+									bill(4999,3);
+									break;
+								case 3:
+									bill(9299,6);
+									break;
+								case 4:
+									bill(17999,12);
+									break;
+								case 5:
+									exit(0);
+								default:
+									printf("\n\t\t\tInvalid!!!\n\t\t\t Try Again.");
+									
+							}
+				 			break;
+				 		case 3:
+				 			welcome_page();
+				 			display_package();
+				 			printf("\n\n\t\t\t Please select pacakage of Home Zoom 40x.");
+				 			printf("\n\t\t\t_______________________________________________");
+				 			printf("\n\t\t\t\t\tSelect:");
+							scanf("%d",&paying_for);
+							switch(paying_for)
+							{
+								case 1:
+									bill(2399,1);
+									break;
+								case 2:
+									bill(6599,3);
+									break;
+								case 3:
+									bill(12199,6);
+									break;
+								case 4:
+									bill(23999,12);
+									break;
+								case 5:
+									exit(0);
+								default:
+									printf("\n\t\t\tInvalid!!!\n\t\t\t Try Again.");
+									
+							}
+				 			break;
+				 		
+                         default :
+				
+						    printf("\n\t\t\t Invalid !!!/\n\t\t\t Try Again.");
+				}
 			}
-					printf("\t*|\n");
+		}
+		
+	else if (choice==2)
+			{
+				exit(1);
 			}
+	else
+			{
+				main_menu(customer);
+			}
+			
 		
 }
+	
